@@ -3,7 +3,9 @@
   <h2><%= @post.title %></h2>
   <time>Updated <%= @post.updated_at %></time>
   <p><%= @post.body %></p>
+  <% if @post.users == current_user && !@post.users.nil? %>
   <%= link_to "Edit Post", edit_post_path(@post) %>
+  <% end %>
   <%= link_to "Delete Post", post_path(@post), method: :delete %>
   <div class='comments'>
   <h3>Comments</h3>
